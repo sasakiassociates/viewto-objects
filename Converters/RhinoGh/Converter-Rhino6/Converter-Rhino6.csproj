@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>ViewObjects.Converter.Rhino</RootNamespace>
+        <AssemblyName>ViewObjects.Converter.Rhino6</AssemblyName>
+        <PackageId>ViewObjects.Converter.Rhino6</PackageId>
+        <Title>ViewObjects.Converter.Rhino6</Title>
+        <Authors>Sasaki</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="RhinoCommon" Version="6.28.20199.17141" />
+    </ItemGroup>
+
+    <Import Project="..\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems" Label="Shared" />
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\..\Speckle\speckle-sharp\Core\Core\Core.csproj" />
+        <ProjectReference Include="..\..\..\Objects\ViewObjects-Speckle\ViewObjects-Speckle.csproj" />
+        <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
+        <ProjectReference Include="..\..\Converter-Script\Converter-Script.csproj" />
+
+    </ItemGroup>
+    
+    <PropertyGroup>
+        <IsDesktopBuild Condition="'$(IsDesktopBuild)' == ''">true</IsDesktopBuild>
+    </PropertyGroup>
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(IsDesktopBuild)' == true">
+        <Exec Condition="$([MSBuild]::IsOsPlatform('Windows'))" Command="xcopy /Y /S &quot;$(TargetDir)$(AssemblyName).dll&quot; &quot;$(AppData)\Speckle\Kits\ViewTo\&quot;" />
+    </Target>
+    
+</Project>

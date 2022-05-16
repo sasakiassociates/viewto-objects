@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>ViewObjects.Converter</RootNamespace>
+        <AssemblyName>ViewObjects.Converter.Script</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Objects\ViewObjects-Speckle\ViewObjects-Speckle.csproj"/>
+        <ProjectReference Include="..\..\Objects\ViewObjects\ViewObjects.csproj"/>
+    </ItemGroup>
+
+</Project>

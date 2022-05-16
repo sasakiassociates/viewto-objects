@@ -3,12 +3,12 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>1A49ED6A-20EC-4FFB-8EDF-A03F5EED99C5</SharedGUID>
+    <SharedGUID>7A4DCD13-28D4-49C3-B339-2E2FCE447901</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Converter_RhinoGhShared</Import_RootNamespace>
+    <Import_RootNamespace>ConverterRhinoGhShared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Class1.cs"/>
+    <Compile Include="$(MSBuildThisFileDirectory)RhinoGrasshopperConverter.cs" />
   </ItemGroup>
 </Project>
