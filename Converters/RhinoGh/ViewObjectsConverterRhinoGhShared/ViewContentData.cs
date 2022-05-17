@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
-using ViewTo.Speckle;
+using ViewObjects.Speckle;
 
 namespace ViewObjects.Converter.Rhino
 {

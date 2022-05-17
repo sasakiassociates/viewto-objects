@@ -13,7 +13,7 @@ namespace ViewObjects.Converter.Rhino
 		#if RHINO6 && GRASSHOPPER
     public static string RhinoAppName = VersionedHostApplications.Grasshopper6;
 		#elif RHINO7 && GRASSHOPPER
-    public static string RhinoAppName = VersionedHostApplications.Grasshopper7;
+		public static string RhinoAppName = VersionedHostApplications.Grasshopper7;
 		#elif RHINO6
 		public static string RhinoAppName = VersionedHostApplications.Rhino6;
 		#elif RHINO7

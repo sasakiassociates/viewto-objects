@@ -17,19 +17,21 @@
         <DefineConstants>TRACE;RHINO6</DefineConstants>
     </PropertyGroup>
     
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\..\..\Speckle\speckle-sharp\Core\Core\Core.csproj" />
+        <ProjectReference Include="..\..\..\Objects\ViewObjectsSpeckle\ViewObjectsSpeckle.csproj" />
+        <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
+        <ProjectReference Include="..\..\ViewObejctsConverter\ViewObejctsConverter.csproj" />
+    </ItemGroup>
+    
+
     <ItemGroup>
       <PackageReference Include="Grasshopper" Version="6.28.20199.17141" />
       <PackageReference Include="RhinoCommon" Version="6.28.20199.17141" />
     </ItemGroup>
 
-    <Import Project="..\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems" Label="Shared" />
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\..\..\..\Speckle\speckle-sharp\Core\Core\Core.csproj" />
-        <ProjectReference Include="..\..\..\Objects\ViewObjects-Speckle\ViewObjects-Speckle.csproj" />
-        <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
-        <ProjectReference Include="..\..\Converter-Script\Converter-Script.csproj" />
-    </ItemGroup>
+    <Import Project="..\ViewObjectsConverterRhinoGhShared\ViewObjectsConverterRhinoGhShared.projitems" Label="Shared" />
     
     <PropertyGroup>
         <IsDesktopBuild Condition="'$(IsDesktopBuild)' == ''">true</IsDesktopBuild>

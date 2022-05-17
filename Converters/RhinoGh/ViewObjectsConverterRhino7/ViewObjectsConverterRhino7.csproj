@@ -13,19 +13,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Grasshopper" Version="7.4.21078.1001" />
-        <PackageReference Include="RhinoCommon" Version="7.4.21078.1001" />
+        <ProjectReference Include="..\..\..\..\..\Speckle\speckle-sharp\Core\Core\Core.csproj" />
+        <ProjectReference Include="..\..\..\Objects\ViewObjectsSpeckle\ViewObjectsSpeckle.csproj" />
+        <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
+        <ProjectReference Include="..\..\ViewObejctsConverter\ViewObejctsConverter.csproj" />
     </ItemGroup>
-
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\..\Speckle\speckle-sharp\Core\Core\Core.csproj" />
-        <ProjectReference Include="..\..\..\Objects\ViewObjects-Speckle\ViewObjects-Speckle.csproj" />
-        <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
-        <ProjectReference Include="..\..\Converter-Script\Converter-Script.csproj" />
+      <PackageReference Include="Grasshopper" Version="7.4.21078.1001" />
+      <PackageReference Include="RhinoCommon" Version="7.4.21078.1001" />
     </ItemGroup>
 
-    <Import Project="..\ConverterRhinoGhShared\ConverterRhinoGhShared.projitems" Label="Shared" />
+    <Import Project="..\ViewObjectsConverterRhinoGhShared\ViewObjectsConverterRhinoGhShared.projitems" Label="Shared" />
 
 
     <PropertyGroup Condition="$(Configuration) == 'Debug' AND $([MSBuild]::IsOSPlatform(Windows))">
