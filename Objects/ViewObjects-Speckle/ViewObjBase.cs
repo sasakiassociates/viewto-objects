@@ -1,6 +1,5 @@
 ﻿using Speckle.Core.Models;
 using ViewObjects;
-using ViewTo.ViewObjects.Structure;
 
 namespace ViewTo.Speckle
 {

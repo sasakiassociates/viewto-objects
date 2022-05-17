@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using ViewObjects;
 
-namespace ViewTo.ViewObjects
+namespace ViewObjects.Rig
 {
 	public class RigParameters : IRigParam
 	{

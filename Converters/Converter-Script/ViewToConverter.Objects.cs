@@ -5,9 +5,9 @@ using System.Linq;
 using Objects.Geometry;
 using Speckle.Core.Models;
 using ViewObjects;
+using ViewObjects.Cloud;
+using ViewObjects.Viewer;
 using ViewTo.Speckle;
-using ViewTo.ViewObjects;
-using ViewTo.ViewObjects.Structure;
 
 namespace ViewObjects.Converter.Script
 {

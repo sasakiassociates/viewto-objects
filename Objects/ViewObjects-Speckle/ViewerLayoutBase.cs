@@ -2,7 +2,7 @@
 using Objects.Geometry;
 using Speckle.Newtonsoft.Json;
 using ViewObjects;
-using ViewTo.ViewObjects.Structure;
+using ViewObjects.Viewer;
 
 namespace ViewTo.Speckle
 {

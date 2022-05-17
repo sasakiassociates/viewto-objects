@@ -10,5 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)RhinoGrasshopperConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewContentConverter.cs" />
   </ItemGroup>
 </Project>

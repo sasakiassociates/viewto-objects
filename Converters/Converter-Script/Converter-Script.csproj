@@ -7,8 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Objects\ViewObjects-Speckle\ViewObjects-Speckle.csproj"/>
-        <ProjectReference Include="..\..\Objects\ViewObjects\ViewObjects.csproj"/>
+        <ProjectReference Include="..\..\Objects\ViewObjects-Speckle\ViewObjects-Speckle.csproj" />
+        <ProjectReference Include="..\..\Objects\ViewObjects\ViewObjects.csproj" />
     </ItemGroup>
+
+
+    <PropertyGroup>
+        <IsDesktopBuild Condition="'$(IsDesktopBuild)' == ''">true</IsDesktopBuild>
+    </PropertyGroup>
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(IsDesktopBuild)' == true">
+        <Exec Condition="$([MSBuild]::IsOsPlatform('Windows'))" Command="xcopy /Y /S &quot;$(TargetDir)$(AssemblyName).dll&quot; &quot;$(AppData)\Speckle\Kits\ViewTo\&quot;" />
+    </Target>
 
 </Project>

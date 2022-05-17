@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Objects.Geometry;
-using Sasaki.Objects;
-using ViewObjects;
+using ViewObjects.Cloud;
 using ViewTo.Speckle;
-using ViewTo.ViewObjects.Structure;
 
 namespace ViewObjects.Converter.Script
 {

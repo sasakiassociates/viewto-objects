@@ -7,69 +7,71 @@ using Speckle.Core.Kits;
 
 namespace ViewTo.Speckle
 {
-  public class ViewToKit : ISpeckleKit
-  {
+	public class ViewToKit : ISpeckleKit
+	{
 
-    private Dictionary<string, Type> _LoadedConverters = new Dictionary<string, Type>();
+		private Dictionary<string, Type> _LoadedConverters = new Dictionary<string, Type>();
 
-    public static ViewToKit LoadKit => KitManager.GetKit(AssemblyFullName) as ViewToKit;
+		public static ViewToKit LoadKit => KitManager.GetKit(AssemblyFullName) as ViewToKit;
 
-    public static string AssemblyFullName => AssemblyName.FullName;
+		public static string AssemblyFullName => AssemblyName.FullName;
 
-    public string ConverterBaseName => "ViewObjects.Converter";
+		public string ConverterBaseName => "ViewObjects.Converter";
 
-    public static AssemblyName AssemblyName => typeof(ViewObjBase).GetTypeInfo().Assembly.GetName();
+		public static AssemblyName AssemblyName => typeof(ViewObjBase).GetTypeInfo().Assembly.GetName();
 
-    public string Description => "View To kit for converting";
+		public string Description => "View To kit for converting";
 
-    public string Name => nameof(ViewToKit);
+		public string Name => nameof(ViewToKit);
 
-    public string Author => "David Morgan";
+		public string Author => "David Morgan";
 
-    public string WebsiteOrEmail => "https://sasaki.com";
+		public string WebsiteOrEmail => "https://sasaki.com";
 
-    public IEnumerable<Type> Types => Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsSubclassOf(typeof(ViewObjBase)) && !t.IsAbstract);
+		public IEnumerable<Type> Types => Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsSubclassOf(typeof(ViewObjBase)) && !t.IsAbstract);
 
-    public ISpeckleConverter LoadConverter(string app)
-    {
-      converters = GetAvailableConverters();
+		public ISpeckleConverter LoadConverter(string app)
+		{
+			if (_LoadedConverters.ContainsKey(app) && _LoadedConverters[app] != null)
+				return Activator.CreateInstance(_LoadedConverters[app]) as ISpeckleConverter;
 
-      if (_LoadedConverters.ContainsKey(app) && _LoadedConverters[app] != null) return Activator.CreateInstance(_LoadedConverters[app]) as ISpeckleConverter;
+			converters = GetAvailableConverters();
 
-      try
-      {
-        var path = Path.Combine(KitLocation, ConverterBaseName + "." + $"{app}.dll");
-        if (File.Exists(path))
-        {
-          var assembly = Assembly.LoadFrom(path);
+			try
+			{
+				var path = Path.Combine(KitLocation, ConverterBaseName + "." + $"{app}.dll");
+				if (File.Exists(path))
+				{
+					foreach (var t in Assembly.LoadFrom(path).GetTypes())
+					foreach (var i in t.GetInterfaces())
+						if (i.Name == nameof(ISpeckleConverter)
+						    && Activator.CreateInstance(t) is ISpeckleConverter c
+						    && c.GetServicedApplications().Contains(app))
+						{
+							_LoadedConverters[app] = t;
+							return c;
+						}
+				}
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				return null;
+			}
+			
+			return null;
+		}
 
-          var converterClass = assembly.GetTypes().FirstOrDefault(type =>
-                                                                    type.GetInterfaces().FirstOrDefault(i => i.Name == typeof(ISpeckleConverter).Name) != null
-                                                                    && (Activator.CreateInstance(type) as ISpeckleConverter).GetServicedApplications()
-                                                                    .Contains(app)
-          );
+		private List<string> converters;
 
-          _LoadedConverters[app] = converterClass;
-          return Activator.CreateInstance(converterClass) as ISpeckleConverter;
-        }
-        return null;
-      }
-      catch (Exception e)
-      {
-        return null;
-      }
-    }
+		public IEnumerable<string> Converters => converters ??= GetAvailableConverters();
 
-    private List<string> converters;
+		public string KitLocation => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Speckle\\Kits\\ViewTo");
 
-    public IEnumerable<string> Converters => converters ??= GetAvailableConverters();
-
-    public string KitLocation => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Speckle\\Kits\\ViewTo");
-
-    public List<string> GetAvailableConverters()
-    {
-      var list = Directory.EnumerateFiles(KitLocation, ConverterBaseName + ".*");
-      return list.ToList().Select(dllPath => dllPath.Split('.').Reverse().ToList()[1]).ToList();
-    }
-  }
+		public List<string> GetAvailableConverters()
+		{
+			var list = Directory.EnumerateFiles(KitLocation, ConverterBaseName + ".*");
+			return list.ToList().Select(dllPath => dllPath.Split('.').Reverse().ToList()[1]).ToList();
+		}
+	}
 }

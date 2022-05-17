@@ -1,4 +1,4 @@
-﻿namespace ViewObjects
+﻿namespace ViewObjects.Viewer
 {
 	public enum ViewerDirection
 	{

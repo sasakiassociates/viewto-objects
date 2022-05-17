@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Sasaki.Objects;
-using ViewTo.ViewObjects.Structure;
+using ViewObjects.Cloud;
+using ViewObjects.Viewer;
 
 namespace ViewObjects
 {

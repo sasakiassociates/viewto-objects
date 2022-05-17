@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Rhino;
+using Rhino.DocObjects;
+using Rhino.Geometry;
 using Speckle.Core.Kits;
 using ViewObjects.Converter.Script;
 
@@ -7,6 +9,16 @@ namespace ViewObjects.Converter.Rhino
 {
 	public partial class ViewObjRhinoConverter : ViewObjectConverter
 	{
+
+		#if RHINO6 && GRASSHOPPER
+    public static string RhinoAppName = VersionedHostApplications.Grasshopper6;
+		#elif RHINO7 && GRASSHOPPER
+    public static string RhinoAppName = VersionedHostApplications.Grasshopper7;
+		#elif RHINO6
+		public static string RhinoAppName = VersionedHostApplications.Rhino6;
+		#elif RHINO7
+    public static string RhinoAppName = VersionedHostApplications.Rhino7;
+		#endif
 
 		public override string Description => "Converter for rhino/gh objects into base view objects";
 
@@ -18,10 +30,7 @@ namespace ViewObjects.Converter.Rhino
 
 		public override IEnumerable<string> GetServicedApplications()
 		{
-			return new[]
-			{
-				VersionedHostApplications.Rhino7,
-			};
+			return new[] { RhinoAppName };
 		}
 
 		/// <summary>
@@ -31,11 +40,7 @@ namespace ViewObjects.Converter.Rhino
 		public override void SetContextDocument(object doc)
 		{
 			Doc = (RhinoDoc)doc;
-
-			// Note: grabs the standard object kit and loads it. This will fail if the default speckle kit is not installed on the machine
-			defaultConverter = KitManager.GetDefaultKit().LoadConverter(
-				RhinoApp.Version.Major == 6 ? VersionedHostApplications.Rhino6 : VersionedHostApplications.Rhino7);
-
+			defaultConverter = KitManager.GetDefaultKit().LoadConverter(RhinoAppName);
 			defaultConverter?.SetContextDocument(Doc);
 		}
 	}

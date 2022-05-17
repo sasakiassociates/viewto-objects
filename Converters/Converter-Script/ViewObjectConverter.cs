@@ -14,6 +14,7 @@ namespace ViewObjects.Converter.Script
 		public Action<List<object>> OnViewContentConverted;
 		public ViewObjectSchema Schema;
 		public ISpeckleConverter supportConverter;
+		
 		public ViewObjectConverter()
 		{ }
 
@@ -22,6 +23,7 @@ namespace ViewObjects.Converter.Script
 			Schema = schema;
 			supportConverter = converter;
 		}
+		
 		public virtual List<ApplicationPlaceholderObject> ContextObjects { get; set; } = new List<ApplicationPlaceholderObject>();
 
 		public virtual HashSet<Exception> ConversionErrors { get; }

@@ -9,7 +9,16 @@
         <Authors>Sasaki</Authors>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DefineConstants>TRACE;RHINO6</DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DefineConstants>TRACE;RHINO6</DefineConstants>
+    </PropertyGroup>
+    
     <ItemGroup>
+      <PackageReference Include="Grasshopper" Version="6.28.20199.17141" />
       <PackageReference Include="RhinoCommon" Version="6.28.20199.17141" />
     </ItemGroup>
 
@@ -20,7 +29,6 @@
         <ProjectReference Include="..\..\..\Objects\ViewObjects-Speckle\ViewObjects-Speckle.csproj" />
         <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
         <ProjectReference Include="..\..\Converter-Script\Converter-Script.csproj" />
-
     </ItemGroup>
     
     <PropertyGroup>

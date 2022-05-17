@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ViewObjects
+namespace ViewObjects.Content
 {
 	public sealed class ContentBundle : IViewContentBundle
 	{

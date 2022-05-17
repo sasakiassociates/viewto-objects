@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ViewObjects
+namespace ViewObjects.Viewer
 {
 	[Serializable]
 	public class Viewer : IViewer

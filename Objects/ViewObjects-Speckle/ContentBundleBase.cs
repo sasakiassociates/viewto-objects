@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using Sasaki.Objects;
 using Speckle.Core.Models;
 using ViewObjects;
-using ViewTo.ViewObjects.Structure;
 
 namespace ViewTo.Speckle
 {

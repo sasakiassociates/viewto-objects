@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ViewObjects
+namespace ViewObjects.Cloud
 {
 	public class ResultCloud : ViewCloud, IResultCloud
 	{

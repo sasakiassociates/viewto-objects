@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Sasaki.Objects;
 
-namespace ViewObjects
+namespace ViewObjects.Cloud
 {
 	public class ViewCloud : IViewCloud, IValidate
 	{

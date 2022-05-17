@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Objects.Geometry;
-using Sasaki.Objects;
 using Speckle.Core.Models;
 using Speckle.Newtonsoft.Json;
-using ViewTo.ViewObjects.Structure;
+using ViewObjects;
 
 namespace ViewTo.Speckle
 {

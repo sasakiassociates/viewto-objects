@@ -13,6 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Grasshopper" Version="7.4.21078.1001" />
         <PackageReference Include="RhinoCommon" Version="7.4.21078.1001" />
     </ItemGroup>
 
@@ -35,13 +36,13 @@
 
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DefineConstants>TRACE;RHINO7;GRASSHOPPER;</DefineConstants>
+        <DefineConstants>TRACE;RHINO7;</DefineConstants>
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DefineConstants>TRACE;RHINO7;GRASSHOPPER;</DefineConstants>
+        <DefineConstants>TRACE;RHINO7;</DefineConstants>
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
     

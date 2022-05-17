@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ViewObjects;
-using ViewTo.ViewObjects.Structure;
+using ViewObjects.Cloud;
 
-namespace ViewTo.ViewObjects
+namespace ViewObjects.Viewer
 {
 	[Serializable]
 	public class ViewerBundle : IViewerBundle

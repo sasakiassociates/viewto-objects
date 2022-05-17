@@ -1,6 +1,9 @@
 ﻿using System;
 using ViewObjects;
-using ViewTo.ViewObjects;
+using ViewObjects.Cloud;
+using ViewObjects.Content;
+using ViewObjects.Study;
+using ViewObjects.Viewer;
 
 namespace ViewObjects.Converter.Script
 {

@@ -1,6 +1,5 @@
 ﻿using Speckle.Newtonsoft.Json;
 using ViewObjects;
-using ViewTo.ViewObjects.Structure;
 
 namespace ViewTo.Speckle
 {

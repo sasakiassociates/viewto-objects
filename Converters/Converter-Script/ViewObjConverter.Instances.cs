@@ -1,5 +1,4 @@
-﻿using ViewObjects;
-
+﻿
 namespace ViewObjects.Converter.Script
 {
 

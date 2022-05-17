@@ -1,7 +1,6 @@
 using System;
-using Sasaki.Objects;
 
-namespace ViewTo.ViewObjects.Structure
+namespace ViewObjects.Cloud
 {
 
 	[Serializable]
