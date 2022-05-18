@@ -19,7 +19,6 @@
     
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\..\Speckle\speckle-sharp\Core\Core\Core.csproj" />
         <ProjectReference Include="..\..\..\Objects\ViewObjectsSpeckle\ViewObjectsSpeckle.csproj" />
         <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
         <ProjectReference Include="..\..\ViewObejctsConverter\ViewObejctsConverter.csproj" />

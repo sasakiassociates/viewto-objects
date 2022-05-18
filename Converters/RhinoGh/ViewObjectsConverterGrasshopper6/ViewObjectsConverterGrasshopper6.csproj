@@ -10,7 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\..\Speckle\speckle-sharp\Core\Core\Core.csproj" />
         <ProjectReference Include="..\..\..\Objects\ViewObjectsSpeckle\ViewObjectsSpeckle.csproj" />
         <ProjectReference Include="..\..\..\Objects\ViewObjects\ViewObjects.csproj" />
         <ProjectReference Include="..\..\ViewObejctsConverter\ViewObejctsConverter.csproj" />
@@ -44,6 +43,7 @@
     <ItemGroup>
         <PackageReference Include="Grasshopper" Version="6.28.20199.17141" />
         <PackageReference Include="RhinoCommon" Version="6.28.20199.17141" />
+        <PackageReference Include="Speckle.Core" Version="2.5.2" />
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(IsDesktopBuild)' == true">
         <Exec Condition="$([MSBuild]::IsOsPlatform('Windows'))" Command="xcopy /Y /S &quot;$(TargetDir)$(AssemblyName).dll&quot; &quot;$(AppData)\Speckle\Kits\ViewTo\&quot;" />
