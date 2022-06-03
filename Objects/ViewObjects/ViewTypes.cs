@@ -39,6 +39,7 @@ namespace ViewObjects
 		List<CloudShell> linkedClouds { get; set; }
 	}
 
+	
 	public interface IViewStudy : IViewObj, INameable, IValidate
 	{
 		List<IViewObj> objs { get; set; }

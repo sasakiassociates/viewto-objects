@@ -1,0 +1,24 @@
+{
+  "name": "Sasaki.ViewObjects.Converter",
+  "rootNamespace": "ViewObjects.Converter.Unity",
+  "references": [
+    "Sasaki.ViewObjects",
+    "Speckle.Core",
+    "Speckle.Objects",
+    "UnityEditor.UI",
+    "UnityEngine.UI"
+  ],
+  "includePlatforms": [
+    "Editor",
+    "WindowsStandalone32",
+    "WindowsStandalone64"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

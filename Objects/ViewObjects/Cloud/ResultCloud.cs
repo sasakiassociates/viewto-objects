@@ -9,6 +9,7 @@ namespace ViewObjects.Cloud
 		{
 			get => base.isValid && data != null && data.Any();
 		}
+		
 		public List<IResultData> data { get; set; }
 	}
 }
