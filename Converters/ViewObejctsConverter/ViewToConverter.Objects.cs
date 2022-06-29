@@ -377,21 +377,21 @@ namespace ViewObjects.Converter.Script
 
 			obj.viewID = @base.viewID;
 			obj.data = @base.data.CastTo();
-			obj.points = @base.points.ToView().ToArray();
+			obj.viewPoints = @base.points.ToView().ToArray();
 
 			return obj;
 		}
 
 		protected virtual ResultCloudBase ResultCloudToSpeckle(IResultCloud @object) => new ResultCloudBase
 		{
-			data = @object.data.CastTo(), points = @object.points.ToList().ToSpeckle(), viewID = @object.viewID
+			data = @object.data.CastTo(), points = @object.viewPoints.ToList().ToSpeckle(), viewID = @object.viewID
 		};
 
 		protected virtual ViewCloudBase ViewCloudToSpeckle(IViewCloud @object) => @object is ResultCloud rc ?
 			ResultCloudToSpeckle(rc) :
 			new ViewCloudBase
 			{
-				points = @object.points.ToList().ToSpeckle(), viewID = @object.viewID
+				points = @object.viewPoints.ToList().ToSpeckle(), viewID = @object.viewID
 			};
 
 		protected IViewCloud ViewCloudToNative(ViewCloudBase @base)
@@ -400,7 +400,7 @@ namespace ViewObjects.Converter.Script
 			var obj = CreateNativeViewCloud();
 
 			obj.viewID = @base.viewID;
-			obj.points = @base.points.ToView().ToArray();
+			obj.viewPoints = @base.points.ToView().ToArray();
 
 			return obj;
 		}

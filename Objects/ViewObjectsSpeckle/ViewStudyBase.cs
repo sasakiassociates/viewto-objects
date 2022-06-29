@@ -3,13 +3,20 @@
 namespace ViewObjects.Speckle
 {
 
-  public class ViewStudyBase : ViewObjBase
-  {
+	/// <summary>
+	/// A View Study for Speckle  
+	/// </summary>
+	public class ViewStudyBase : ViewObjBase
+	{
 
-    public ViewStudyBase()
-    { }
-    public string viewName { get; set; }
+		/// <summary>
+		/// 
+		/// </summary>
+		public ViewStudyBase()
+		{ }
 
-    public List<ViewObjBase> objs { get; set; }
-  }
+		public string viewName { get; set; }
+
+		public List<ViewObjBase> objs { get; set; }
+	}
 }

@@ -49,6 +49,8 @@ namespace ViewObjects.Converter.Script
 		}
 
 		public ProgressReport Report { get; }
+		
+		public ReceiveMode ReceiveMode { get; set; }
 
 		// public ReceiveMode ReceiveMode { get; set; }
 

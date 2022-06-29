@@ -10,10 +10,10 @@ namespace ViewObjects.Cloud
 
 		public virtual bool isValid
 		{
-			get => points != null && points.Any();
+			get => viewPoints != null && viewPoints.Any();
 		}
 
-		public CloudPoint[] points { get; set; }
+		public CloudPoint[] viewPoints { get; set; }
 		/// <summary>
 		///   Temporary get function that returns a GUID that is set when object is created
 		/// </summary>
@@ -21,7 +21,7 @@ namespace ViewObjects.Cloud
 
 		public int count
 		{
-			get => points.Valid() ? points.Length : 0;
+			get => viewPoints.Valid() ? viewPoints.Length : 0;
 		}
 	}
 }

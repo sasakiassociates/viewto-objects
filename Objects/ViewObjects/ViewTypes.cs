@@ -10,7 +10,7 @@ namespace ViewObjects
 
 	public interface IViewCloud : IViewObj, IId
 	{
-		CloudPoint[] points { get; set; }
+		CloudPoint[] viewPoints { get; set; }
 		int count { get; }
 	}
 
@@ -23,7 +23,7 @@ namespace ViewObjects
 	{
 		ViewerDirection Direction { get; }
 	}
-
+	
 	public interface IViewerLayout : IViewObj
 	{
 		List<IViewer> viewers { get; }

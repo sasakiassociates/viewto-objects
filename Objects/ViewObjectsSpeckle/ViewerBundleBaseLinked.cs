@@ -9,6 +9,7 @@ namespace ViewObjects.Speckle
 
     public ViewerBundleBaseLinked()
     { }
+    
     [JsonIgnore]
     public override bool isValid => base.isValid && linkedClouds.Valid();
 
